@@ -1,5 +1,7 @@
 <?php
-require 'Birds.php';
+namespace App;
+
+use App\Birds;
 
 class Ostrich extends Birds
 {
@@ -8,7 +10,3 @@ class Ostrich extends Birds
        echo "走る";
     }
 }
-
-$ostrich = new Ostrich();
-$ostrich->run();
-$ostrich->fly();

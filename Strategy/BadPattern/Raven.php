@@ -1,5 +1,7 @@
 <?php
-require 'Birds.php';
+namespace App;
+
+use App\Birds;
 
 class Raven extends Birds
 {
@@ -8,6 +10,3 @@ class Raven extends Birds
         parent::describe(); // TODO: Change the autogen
     }
 }
-
-$raven = new Raven();
-$raven->eat();

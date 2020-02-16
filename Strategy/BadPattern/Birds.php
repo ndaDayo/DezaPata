@@ -1,5 +1,5 @@
 <?php
-
+namespace App;
 
 abstract class Birds
 {
@@ -20,6 +20,6 @@ abstract class Birds
 
     public function describe()
     {
-      echo "表示する";
+        echo "表示する";
     }
 }
