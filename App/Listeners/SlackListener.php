@@ -1,10 +1,14 @@
 <?php
 namespace App\Listeners;
 
-class SlackListener
+use App\Interfaces\ObserverInterface;
+use App\Subjects\BulletinBoard;
+
+class SlackListener implements ObserverInterface
 {
-    public function hello()
+    public function execute(BulletinBoard $board)
     {
-        echo 'ヘッロー';
+        // TODO: Implement execute() method.
+        echo "スラック通知したよ";
     }
 }

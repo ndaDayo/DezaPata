@@ -3,9 +3,9 @@ namespace App\Interfaces;
 
 use App\Interfaces\ObserverInterface;
 
-class SubjectInterface
+interface SubjectInterface
 {
-    public function addObserver(ObserverInterface $listener){}
-    public function removeObserver(ObserverInterface $listener){}
-    public function notify(){}
+    public function addObserver(ObserverInterface $listener);
+    public function removeObserver(ObserverInterface $listener);
+    public function notify();
 }
