@@ -1,21 +1,15 @@
 <?php
 require 'vendor/autoload.php';
 
-use App\Subjects\BulletinBoard;
-use App\Listeners\LoggingListener;
-use App\Listeners\MailListener;
-use App\Listeners\SlackListener;
+use App\Subject\SMS;
+use App\Observer\GirlFriend;
+use App\Observer\Mum;
 
-//　掲示板クラス
-$user_1 = new BulletinBoard('はやと');
+$sms = new SMS();
+// SNSから通知を受け取るようにする
+$girlFriend = new GirlFriend($sms);
+$mum = new Mum($sms);
 
-// リスナー登録
-$user_1->addObserver(new LoggingListener());
-$user_1->addObserver(new MailListener());
-$user_1->addObserver(new SlackListener());
-
-
-$user_1->comment('おはよう');
-
-
-
+$sms->IAmHome();
+echo "<hr>";
+$sms->IAmHome(time() + 3600); // 一時間後
