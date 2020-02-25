@@ -1,10 +1,11 @@
 <?php
 
-
 namespace BadPattern\Interfaces;
 
-
-class Car
+interface Car
 {
-
+    /**
+     * @return mixed
+     */
+    public function run();
 }
