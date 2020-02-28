@@ -6,7 +6,7 @@
 ### スケルトンを作成する
 
 
-generate-test [--bootstrap BOOTSTRAP] [--] <class> [class-source] [test-class] [test-source]
+generate-test [--bootstrap BOOTSTRAP] [--] < class > [class-source] [test-class] [test-source]
 
 Example)
 
