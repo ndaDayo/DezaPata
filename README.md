@@ -10,4 +10,4 @@ generate-test [--bootstrap BOOTSTRAP] [--] < class > [class-source] [test-class]
 
 Example)
 
-vendor/bin/phpunit-skelgen generate-test -- "App\Decorators\PlanDecorator" PlanDecorator.php PlanDecoratorTest tests/PlanDecorator.php
+vendor/bin/phpunit-skelgen generate-test -- "App\Decorators\PlanDecorator" PlanDecorator.php PlanDecoratorTest tests/PlanDecoratorTest.php
