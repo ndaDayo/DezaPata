@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Decorators\Packs;
 
 use App\Decorators\PlanDecorator;
@@ -25,7 +26,7 @@ class AirplanePack extends PlanDecorator
     public function __construct(PlanInterface $obj, $airlines, $additional_cost)
     {
         parent::__construct($obj);
-        $this->airlines  = $airlines;
+        $this->airlines = $airlines;
         $this->additional_cost = $additional_cost;
     }
 
@@ -36,7 +37,7 @@ class AirplanePack extends PlanDecorator
      */
     public function getPlan()
     {
-        return sprintf('%s /飛行機パック (%s)',parent::getPlan(),$this->airlines);
+        return sprintf('%s /飛行機パック (%s)', parent::getPlan(), $this->airlines);
     }
 
     /**
