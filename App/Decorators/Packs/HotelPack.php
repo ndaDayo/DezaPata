@@ -37,7 +37,7 @@ class HotelPack extends PlanDecorator
      */
     public function getPlan()
     {
-        return sprintf('%s / ホテルパック（%s）', parent::getPlan(), $this->hotel_name);
+        return sprintf('%s / ホテルパック (%s)', parent::getPlan(), $this->hotel_name);
     }
 
     /**
@@ -47,6 +47,6 @@ class HotelPack extends PlanDecorator
      */
     public function getCost()
     {
-        return parent::getCost() + $this->additional_cost .'円';
+        return parent::getCost() + $this->additional_cost;
     }
 }
