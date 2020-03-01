@@ -8,7 +8,6 @@ class SlackListener implements ObserverInterface
 {
     public function execute(BulletinBoard $board)
     {
-        // TODO: Implement execute() method.
         echo "スラック通知したよ";
     }
 }
