@@ -9,15 +9,20 @@ use App\Decorators\Packs\HotelPack;
 class HotelPackTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var TravelPlan
+     */
+    private $travelPlan;
+    
+    /**
      * @var HotelPack
      */
-    protected $object;
+    protected $hotelPack;
 
     protected function setUp()
     {
-        $plan_base = new TravelPlan();
-        $plan_base->setPlan('旅行テスト');
-        $this->object = new HotelPack($plan_base, 'ホテルテスト', 1000);
+        $travelPlan = new TravelPlan();
+        $travelPlan->setPlan('旅行テスト');
+        $this->hotelPack = new HotelPack($travelPlan, 'ホテルテスト', 1000);
     }
 
     /**
@@ -26,7 +31,7 @@ class HotelPackTest extends PHPUnit_Framework_TestCase
      */
     public function testGetPlan()
     {
-        $this->assertEquals('旅行テスト / ホテルパック (ホテルテスト)', $this->object->getPlan());
+        $this->assertThat($this->hotelPack->getPlan(), $this->equalTo('旅行テスト / ホテルパック (ホテルテスト)'));
     }
 
     /**
@@ -35,6 +40,6 @@ class HotelPackTest extends PHPUnit_Framework_TestCase
      */
     public function testGetCost()
     {
-        $this->assertEquals(1000, $this->object->getCost());
+        $this->assertEquals(1000, $this->hotelPack->getCost());
     }
 }

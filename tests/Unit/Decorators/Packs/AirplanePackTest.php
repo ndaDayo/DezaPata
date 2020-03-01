@@ -9,24 +9,29 @@ use App\Decorators\Packs\AirplanePack;
 class AirplanePackTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * @var TravelPlan
+     */
+    private $travelPlan;
+    
+    /**
      * @var AirplanePack
      */
-    protected $object;
-
+    private $airplanePack;
+    
     protected function setUp()
     {
-        $plan_base = new TravelPlan();
-        $plan_base->setPlan("旅行テスト");
-        $this->object = new AirplanePack($plan_base, "飛行機テスト", 3000);
+        $travelPlan = new TravelPlan();
+        $travelPlan->setPlan("旅行テスト");
+        $this->airplanePack = new AirplanePack($travelPlan,"飛行機テスト",3000);
     }
-
+    
     /**
      * @test
-     *
+     * 
      */
     public function testGetPlan()
     {
-        $this->assertEquals('旅行テスト /飛行機パック (飛行機テスト)', $this->object->getPlan());
+        $this->assertEquals('旅行テスト /飛行機パック (飛行機テスト)',$this->airplanePack->getPlan());
     }
 
     /**
@@ -35,7 +40,6 @@ class AirplanePackTest extends PHPUnit_Framework_TestCase
      */
     public function testGetCost()
     {
-        $this->assertEquals(3000, $this->object->getCost());
+        $this->assertEquals(3000,$this->airplanePack->getCost());
     }
 }
-
