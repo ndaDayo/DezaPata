@@ -89,7 +89,7 @@ class BulletinBoard implements SubjectInterface
      */
     public function removeObserver(ObserverInterface $listener)
     {
-        $this->listeners[get_class($listener)];
+        unset($this->listeners[get_class($listener)]);
     }
 
     /**
