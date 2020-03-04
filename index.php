@@ -14,7 +14,8 @@ $user_1->addObserver(new LoggingListener());
 $user_1->addObserver(new MailListener());
 $user_1->addObserver(new SlackListener());
 
-
+$user_1->comment('おはよう');
+$user_1->comment('おはよう');
 $user_1->comment('おはよう');
 
 
