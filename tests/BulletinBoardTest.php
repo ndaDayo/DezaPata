@@ -1,6 +1,8 @@
 <?php
 
+use App\Listeners\LoggingListener;
 use App\Listeners\MailListener;
+use App\Listeners\SlackListener;
 use App\Subjects\BulletinBoard;
 
 /**
@@ -19,7 +21,10 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
      */
     protected $mailListener;
 
-
+    /**
+     * @var array
+     */
+    private $listeners = [];
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -30,8 +35,7 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
         $this->mailListener = new MailListener();
         $this->bulletinBoard->addObserver($this->mailListener);
 
-        $this->bulletinBoard->comment('テストテキスト');
-     // $this->mailListener = $this->getMockBuilder(MailListener::class)->getMock();
+      //  $this->bulletinBoard->comment('テストテキスト');
     }
 
     /**
@@ -40,22 +44,19 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
      */
     public function testGetName()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->assertThat($this->bulletinBoard->getName(), $this->equalTo('テスト太郎'));
     }
 
     /**
      * @covers App\Subjects\BulletinBoard::comment
-     * @todo   Implement testComment().
+     *
      */
     public function testComment()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->assertThat($this->bulletinBoard->comment('コメントテスト'), $this->equalTo('テスト太郎:コメントテスト'));
+
+        // TODO processComment　のテストを書くっス??
+
     }
 
     /**
@@ -64,10 +65,13 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
      */
     public function testAddComment()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $this->bulletinBoard->comment('コメントテスト1');
+        $this->bulletinBoard->comment('コメントテスト2');
+        $this->bulletinBoard->comment('コメントテスト3');
+
+     //   $this->bulletinBoard->processComment();
+
+
     }
 
     /**
@@ -84,37 +88,27 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers App\Subjects\BulletinBoard::addObserver
-     * @todo   Implement testAddObserver().
+     * @test
      */
     public function testAddObserver()
     {
-        $this->mailListener->expects($this->once())->method('execute')->willReturn('メール送信したよ');
-        $this->bulletinBoard->addObserver($this->mailListener);
-        var_dump($this->bulletinBoard->notify());
-    }
 
-    /**
-     * @covers App\Subjects\BulletinBoard::removeObserver
-     * @todo   Implement testRemoveObserver().
-     */
-    public function testRemoveObserver()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
+        // FAIL
 
-    /**
-     * @covers App\Subjects\BulletinBoard::notify
-     * @todo   Implement testNotify().
-     */
-    public function testNotify()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $expected = [
+            'LoggingListener',
+            'MailListener',
+            'SlackListener',
+        ];
+
+
+        $this->bulletinBoard->addObserver(new LoggingListener());
+        $this->bulletinBoard->addObserver(new MailListener());
+        $this->bulletinBoard->addObserver(new SlackListener());
+
+
+        $this->assertEquals($this->listeners,$expected);
+
     }
+    
 }
