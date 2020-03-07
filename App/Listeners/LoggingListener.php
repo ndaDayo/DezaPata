@@ -10,7 +10,7 @@ class LoggingListener implements ObserverInterface
      * ログに書き込む
      *
      * @param BulletinBoard $board
-     * @return mixed|void
+     * @return string
      */
     function execute(BulletinBoard $board):string
     {

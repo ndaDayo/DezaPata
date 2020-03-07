@@ -11,9 +11,9 @@ class MailListener implements ObserverInterface
      * メール送信する
      *
      * @param BulletinBoard $board
-     * @return mixed|void
+     * @return string
      */
-    public function execute(BulletinBoard $board)
+    public function execute(BulletinBoard $board):string
     {
         return "メール送信したよ";
     }
