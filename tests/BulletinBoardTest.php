@@ -24,7 +24,7 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $listeners = [];
+    public $listeners = [];
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -32,10 +32,6 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->bulletinBoard = new BulletinBoard('テスト太郎');
-        $this->mailListener = new MailListener();
-        $this->bulletinBoard->addObserver($this->mailListener);
-
-      //  $this->bulletinBoard->comment('テストテキスト');
     }
 
     /**
@@ -54,61 +50,43 @@ class BulletinBoardTest extends PHPUnit_Framework_TestCase
     public function testComment()
     {
         $this->assertThat($this->bulletinBoard->comment('コメントテスト'), $this->equalTo('テスト太郎:コメントテスト'));
-
-        // TODO processComment　のテストを書くっス??
-
     }
 
     /**
-     * @covers App\Subjects\BulletinBoard::addComment
-     * @todo   Implement testAddComment().
-     */
-    public function testAddComment()
-    {
-        $this->bulletinBoard->comment('コメントテスト1');
-        $this->bulletinBoard->comment('コメントテスト2');
-        $this->bulletinBoard->comment('コメントテスト3');
-
-     //   $this->bulletinBoard->processComment();
-
-
-    }
-
-    /**
-     * @covers App\Subjects\BulletinBoard::processComment
-     * @todo   Implement testProcessComment().
-     */
-    public function testProcessComment()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-
-    /**
+     *
      * @test
      */
     public function testAddObserver()
     {
-
-        // FAIL
-
-        $expected = [
-            'LoggingListener',
-            'MailListener',
-            'SlackListener',
-        ];
-
-
         $this->bulletinBoard->addObserver(new LoggingListener());
         $this->bulletinBoard->addObserver(new MailListener());
         $this->bulletinBoard->addObserver(new SlackListener());
 
+        $expected = [
+            'App\Listeners\LoggingListener' => new LoggingListener(),
+            'App\Listeners\MailListener' => new MailListener(),
+            'App\Listeners\SlackListener' => new SlackListener(),
+        ];
 
-        $this->assertEquals($this->listeners,$expected);
-
+        $this->assertEquals($expected,$this->bulletinBoard->listeners);
     }
-    
+
+
+    /**
+     *
+     * @test
+     */
+    public function testRemoveObserver()
+    {
+        $this->bulletinBoard->addObserver(new LoggingListener());
+        $this->bulletinBoard->addObserver(new MailListener());
+        $this->bulletinBoard->removeObserver(new SlackListener());
+
+        $expected = [
+            'App\Listeners\LoggingListener' => new LoggingListener(),
+            'App\Listeners\MailListener' => new MailListener(),
+        ];
+
+        $this->assertEquals($expected,$this->bulletinBoard->listeners);
+    }
 }
