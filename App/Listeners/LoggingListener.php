@@ -12,8 +12,8 @@ class LoggingListener implements ObserverInterface
      * @param BulletinBoard $board
      * @return mixed|void
      */
-    function execute(BulletinBoard $board)
+    function execute(BulletinBoard $board):string
     {
-     echo 'ログ書き込みOK';
+       return 'ログ書き込みOK';
     }
 };

@@ -15,6 +15,6 @@ class MailListener implements ObserverInterface
      */
     public function execute(BulletinBoard $board)
     {
-        echo "メール送信したよ";
+        return "メール送信したよ";
     }
 }

@@ -10,10 +10,10 @@ class SlackListener implements ObserverInterface
      * スラックに通知する
      *
      * @param BulletinBoard $board
-     * @return mixed|void
+     * @return string
      */
-    public function execute(BulletinBoard $board)
+    public function execute(BulletinBoard $board):string
     {
-        echo "スラック通知したよ";
+        return "スラック通知したよ";
     }
 }
