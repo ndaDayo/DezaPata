@@ -45,7 +45,7 @@ class MoneyExchangeTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected_us, $this->moneyExchange->currencyConversion("US"));
         $this->assertEquals($expected_eur, $this->moneyExchange->currencyConversion("EUR"));
-        $this->assertEquals($expected_pond, $this->moneyExchange->currencyConversion("POND"));
+        $this->assertEquals($expected_pond, $this->moneyExchange->currencyConversion("ENGLAND"));
     }
 
 }
