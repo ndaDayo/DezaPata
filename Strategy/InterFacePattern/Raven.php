@@ -1,4 +1,5 @@
 <?php
+
 namespace InterFacePattern;
 
 use InterFacePattern\Flyable;
@@ -8,6 +9,6 @@ class Raven extends Birds implements Flyable
 {
     public function fly()
     {
-        echo  "飛びますよインターフェイス";
+        echo "飛びますよインターフェイス";
     }
 }

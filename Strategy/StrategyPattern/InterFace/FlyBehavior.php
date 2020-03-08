@@ -1,4 +1,5 @@
 <?php
+
 namespace FlyBehavior;
 
 interface FlyBehavior

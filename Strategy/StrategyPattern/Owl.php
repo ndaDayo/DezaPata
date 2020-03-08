@@ -1,4 +1,5 @@
 <?php
+
 namespace Bird;
 
 use Bird\FlyableBirds;
@@ -13,7 +14,6 @@ class Owl extends FlyableBirds
 
     function display()
     {
-        // TODO: Implement display() method.
         echo "ふくろうですよ〜";
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Bird;
 
 abstract class Birds

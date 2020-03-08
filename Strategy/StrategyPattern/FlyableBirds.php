@@ -1,4 +1,5 @@
 <?php
+
 namespace Bird;
 
 use FlyBehavior\FlyBehavior;
@@ -10,7 +11,6 @@ abstract class FlyableBirds extends Birds implements FlyBehavior
 
     public function fly()
     {
-        // TODO: Implement fly() method.
         $this->flyBehavior->fly();
     }
 }

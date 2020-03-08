@@ -1,4 +1,5 @@
 <?php
+
 namespace InterFacePattern;
 
 interface Flyable
