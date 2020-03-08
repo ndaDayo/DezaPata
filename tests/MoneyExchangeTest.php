@@ -22,8 +22,8 @@ class MoneyExchangeTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->moneyExchange = new MoneyExchange;
         $this->yen = 100;
+        $this->moneyExchange = new MoneyExchange($this->yen);
         $this->doll_rate = 1.1048;
     }
 
@@ -35,7 +35,8 @@ class MoneyExchangeTest extends PHPUnit_Framework_TestCase
         $country = "US";
         $expected = $this->doll_rate * $this->yen;
 
-        $this->assertThat($expected,$this->moneyExchange->currencyConversion($country));
+        /** @var TYPE_NAME $country */
+        $this->assertEquals($expected, $this->moneyExchange->currencyConversion($country));
     }
 
 }
