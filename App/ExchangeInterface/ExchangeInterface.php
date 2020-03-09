@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\ExchangeInterface;
 
-
-class ExchangeInterface
+interface ExchangeInterface
 {
-
+    public function currencyConversion();
 }
