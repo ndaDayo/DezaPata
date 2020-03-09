@@ -29,7 +29,7 @@ class DollarExchangeTest extends PHPUnit_Framework_TestCase
      */
     public function testCurrencyConversion()
     {
-        $expected_us = $this->rate * $this->yen;
-        $this->assertEquals($expected_us, $this->dollarExchange->currencyConversion("US"));
+        $expected = $this->rate * $this->yen;
+        $this->assertEquals($expected, $this->dollarExchange->currencyConversion());
     }
 }
