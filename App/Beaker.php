@@ -48,33 +48,6 @@ class Beaker
         $this->mix();
     }
 
-
-    /**
-     * 実験を行う
-     *
-     * @param $param
-     * @return string
-     */
-    public function experiment($param)
-    {
-        if ($param == $this::ADD_SALT) {
-            // 食塩を1gずつ加えて飽和食塩水を作る実験をする場合
-            // 完全に溶けている間は食塩を加える
-            while ($this->isMelted()) {
-                $this->addSalt(1);
-                $this->mix();
-            }
-            return $this->note();
-        } else if ($param == $this::ADD_WATER) {
-            // 溶け残っている間は水を加える
-            while ($this->isMelted()) {
-                $this->addWater(10);
-                $this->mix();
-            }
-            return $this->note();
-        }
-    }
-
     /**
      * ビーカーに食塩を入れる
      *

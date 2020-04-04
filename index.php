@@ -1,8 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-use App\Beaker;
+use App\Student;
 
-$beaker = new Beaker(100,2);
-
-echo $beaker->experiment($beaker::ADD_SALT);
+$student = new Student();
+$student->main();
