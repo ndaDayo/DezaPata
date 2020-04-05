@@ -3,9 +3,8 @@
 namespace App;
 
 use App\Book;
-use App\Originalterator;
 
-class BookShelf implements Originalterator
+class BookShelf implements Aggregator
 {
     /** @var array */
     private $books = [];
@@ -45,24 +44,19 @@ class BookShelf implements Originalterator
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
-    public function hasNext()
+    public function orderIterator()
     {
-        if ($this->index < $this->getLength()) {
-            return true;
-        }
-
-        return false;
+        return new OrderIterator($this);
     }
 
     /**
-     * @return mixed
+     * @inheritDoc
      */
-    public function next()
+    public function reverseIterator()
     {
-        $book = $this->books[$this->index];
-        $this->index++;
-        return $book;
+        return new ReverseIterator($this);
     }
 }
+

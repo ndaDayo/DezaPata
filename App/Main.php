@@ -14,8 +14,18 @@ class Main
         $bookShelf->appendBook(new Book('ナイスですね―「村西とおるの挑戦状」'));
         $bookShelf->appendBook(new Book('村西とおる語録集 どんな失敗の中にも希望はあるのでございます'));
 
-        while ($bookShelf->hasNext()) {
-            echo $bookShelf->next()->getName().PHP_EOL;
+        $orderIterator = $bookShelf->orderIterator();
+
+        echo "順走！！！";
+        while ($orderIterator->hasNext()) {
+            echo $orderIterator->next()->getName() . PHP_EOL;
+        }
+
+        $reverseIterator = $bookShelf->reverseIterator();
+
+        echo "逆走！！！";
+        while ($reverseIterator->hasNext()) {
+            echo $reverseIterator->next()->getName() . PHP_EOL;
         }
     }
 }
