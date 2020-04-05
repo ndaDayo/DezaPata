@@ -3,14 +3,15 @@
 namespace App;
 
 use App\Book;
+use App\Originalterator;
 
-class BookShelf
+class BookShelf implements Originalterator
 {
     /** @var array */
     private $books = [];
 
     /** @var */
-    private $index;
+    private $index = 0;
 
     /**
      * 本棚に本を追加
@@ -43,4 +44,25 @@ class BookShelf
         return count($this->books);
     }
 
+    /**
+     * @return bool
+     */
+    public function hasNext()
+    {
+        if ($this->index < $this->getLength()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function next()
+    {
+        $book = $this->books[$this->index];
+        $this->index++;
+        return $book;
+    }
 }

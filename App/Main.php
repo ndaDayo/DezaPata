@@ -3,6 +3,7 @@
 namespace App;
 
 use App\BookShelf;
+use App\Book;
 
 class Main
 {
@@ -13,8 +14,8 @@ class Main
         $bookShelf->appendBook(new Book('ナイスですね―「村西とおるの挑戦状」'));
         $bookShelf->appendBook(new Book('村西とおる語録集 どんな失敗の中にも希望はあるのでございます'));
 
-        for ($i = 0; $i < $bookShelf->getLength(); $i++) {
-            echo $bookShelf->getBookAt($i)->getName() . PHP_EOL;
+        while ($bookShelf->hasNext()) {
+            echo $bookShelf->next()->getName().PHP_EOL;
         }
     }
 }

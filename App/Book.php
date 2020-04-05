@@ -26,5 +26,5 @@ class Book
     {
         return $this->name;
     }
-
 }
+
