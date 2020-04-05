@@ -1,0 +1,18 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\" : "App/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpunit/phpunit-skeleton-generator": "*",
+    "squizlabs/php_codesniffer": "*",
+    "phpmd/phpmd": "*"
+  }
+}
