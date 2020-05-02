@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Management;
 
 class Choose
 {
+    /** @var array */
     private $chooses = [];
 
     /**
