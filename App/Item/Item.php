@@ -2,6 +2,11 @@
 
 namespace App\Item;
 
+/**
+ * Class Item
+ *
+ * @package App\Item
+ */
 class Item
 {
     /** @var int */

@@ -2,6 +2,11 @@
 
 namespace App\Item;
 
+/**
+ * Class MachineModel
+ *
+ * @package App\Item
+ */
 class MachineModel implements ItemInterface
 {
     /**

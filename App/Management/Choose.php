@@ -2,6 +2,11 @@
 
 namespace App\Management;
 
+/**
+ * Class Choose
+ *
+ * @package App\Management
+ */
 class Choose
 {
     /** @var array */

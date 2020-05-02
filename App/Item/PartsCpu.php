@@ -2,6 +2,11 @@
 
 namespace App\Item;
 
+/**
+ * Class PartsCpu
+ *
+ * @package App\Item
+ */
 class PartsCpu implements ItemInterface
 {
     /**
