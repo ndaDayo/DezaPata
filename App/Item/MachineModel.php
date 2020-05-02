@@ -2,7 +2,7 @@
 
 namespace App\Item;
 
-class MachineModel
+class MachineModel implements ItemInterface
 {
     /**
      * @var Item
@@ -25,7 +25,7 @@ class MachineModel
      * @param $id
      * @return mixed
      */
-    public function getItems($id)
+    public function getItem($id)
     {
         return $this->items[$id];
     }

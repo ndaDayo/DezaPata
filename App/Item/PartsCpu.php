@@ -2,7 +2,7 @@
 
 namespace App\Item;
 
-class PartsCpu
+class PartsCpu implements ItemInterface
 {
     /**
      * @var Item
@@ -25,7 +25,7 @@ class PartsCpu
      * @param $id
      * @return mixed
      */
-    public function getItems($id)
+    public function getItem($id)
     {
         return $this->items[$id];
     }
