@@ -4,11 +4,11 @@ namespace App\Item;
 
 class Item
 {
-    /** @var ini */
+    /** @var int */
     private $id;
     /** @var string */
     private $name;
-    /** @var ini */
+    /** @var int */
     private $price;
 
     /**

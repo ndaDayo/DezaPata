@@ -2,12 +2,10 @@
 
 namespace App\Item;
 
-use App\Item;
-
 class PartsCpu
 {
     /**
-     * @var 商品
+     * @var Item
      */
     private $items;
 
