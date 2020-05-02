@@ -12,9 +12,6 @@ class TotalFeeTest extends PHPUnit_Framework_TestCase
      */
     protected $total_fee;
 
-    /** @var int */
-    private $total = 0;
-
     protected function setUp()
     {
         $this->total_fee = new TotalFee;
