@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Service
+class Service implements ServiceInterface
 {
     public function doSomething()
     {

@@ -6,7 +6,7 @@ class Client
 {
     private $service;
 
-    public function __construct(Service $service)
+    public function __construct(ServiceInterface $service)
     {
         $this->service = $service;
     }
